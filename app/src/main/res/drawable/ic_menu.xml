@@ -1,0 +1,26 @@
+<!--
+  ~ Copyright (C)  2024 The RisingOS Project
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:height="80dp" android:viewportHeight="26" android:viewportWidth="26" android:width="80dp">
+      
+    <path android:fillColor="#000000" android:pathData="M2.76,0.369L23.24,0.369A2.72,2.72 0,0 1,25.96 3.089L25.96,3.089A2.72,2.72 0,0 1,23.24 5.809L2.76,5.809A2.72,2.72 0,0 1,0.04 3.089L0.04,3.089A2.72,2.72 0,0 1,2.76 0.369z"/>
+      
+    <path android:fillColor="#000000" android:pathData="M8.43,10.28L23.24,10.28A2.72,2.72 0,0 1,25.96 13L25.96,13A2.72,2.72 0,0 1,23.24 15.72L8.43,15.72A2.72,2.72 0,0 1,5.71 13L5.71,13A2.72,2.72 0,0 1,8.43 10.28z"/>
+      
+    <path android:fillColor="#000000" android:pathData="M12.286,20.191L23.24,20.191A2.72,2.72 0,0 1,25.96 22.911L25.96,22.911A2.72,2.72 0,0 1,23.24 25.631L12.286,25.631A2.72,2.72 0,0 1,9.566 22.911L9.566,22.911A2.72,2.72 0,0 1,12.286 20.191z"/>
+    
+</vector>

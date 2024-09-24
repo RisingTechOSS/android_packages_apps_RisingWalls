@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C)  2024 The RisingOS Project
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.QUERY_USERS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
+
+    <application
+        android:name="org.risingos.wallpaperpicker.MainApplication"
+        android:allowBackup="false"
+        android:icon="@drawable/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/RisingWalls"
+        android:enableOnBackInvokedCallback="true"
+        android:hardwareAccelerated="true"
+        tools:targetApi="35"
+        android:label="RisingWalls">
+
+        <activity
+            android:exported="true"
+            android:name="org.risingos.wallpaperpicker.activities.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:exported="false"
+            android:name="org.risingos.wallpaperpicker.activities.PreviewActivity"
+            android:theme="@style/RisingWallsPreviewActivity"/>
+
+        <activity
+            android:exported="true"
+            android:name="org.risingos.wallpaperpicker.activities.FlatPickerActivity" />
+
+        <activity
+            android:exported="true"
+            android:name="org.risingos.wallpaperpicker.activities.DepthPickerActivity" />
+
+        <activity
+            android:exported="true"
+            android:name="org.risingos.wallpaperpicker.activities.CreditsActivity" />
+    </application>
+
+</manifest>

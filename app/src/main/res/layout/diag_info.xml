@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C)  2024 The RisingOS Project
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="48dp">
+
+    <TextView
+        android:id="@+id/text_title_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_title"
+        android:text="@string/wallpaper_info"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/margin_primary"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/constraint_main">
+
+        <View
+            android:id="@+id/line0"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_thickness_wallpaper_info"
+            android:layout_marginHorizontal="@dimen/margin_primary"
+            android:background="@android:color/black"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_name_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_primary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line0"
+            android:layout_marginTop="@dimen/margin_primary"
+            android:text="@string/wallpaper_name"/>
+
+        <TextView
+            android:id="@+id/text_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_primary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line0"
+            android:layout_marginTop="@dimen/margin_primary"/>
+
+        <View
+            android:id="@+id/line1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_thickness_wallpaper_info"
+            android:layout_marginHorizontal="@dimen/margin_primary"
+            android:background="@android:color/black"
+            app:layout_constraintTop_toBottomOf="@+id/text_name_description"
+            android:layout_marginTop="@dimen/margin_primary"/>
+
+        <TextView
+            android:id="@+id/text_author_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_primary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line1"
+            android:layout_marginTop="@dimen/margin_primary"
+            android:text="@string/wallpaper_author"/>
+
+        <TextView
+            android:id="@+id/text_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_primary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line1"
+            android:layout_marginTop="@dimen/margin_primary"/>
+
+        <View
+            android:id="@+id/line2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_thickness_wallpaper_info"
+            android:layout_marginHorizontal="@dimen/margin_primary"
+            android:background="@android:color/black"
+            app:layout_constraintTop_toBottomOf="@+id/text_author_description"
+            android:layout_marginTop="@dimen/margin_primary"/>
+
+        <TextView
+            android:id="@+id/text_type_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_primary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line2"
+            android:layout_marginTop="@dimen/margin_primary"
+            android:text="@string/wallpaper_type"/>
+
+        <TextView
+            android:id="@+id/text_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_primary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line2"
+            android:layout_marginTop="@dimen/margin_primary"/>
+
+        <View
+            android:id="@+id/line3"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_thickness_wallpaper_info"
+            android:layout_marginHorizontal="@dimen/margin_primary"
+            android:background="@android:color/black"
+            app:layout_constraintTop_toBottomOf="@+id/text_type_description"
+            android:layout_marginTop="@dimen/margin_primary"/>
+
+        <TextView
+            android:id="@+id/text_color_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_primary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line3"
+            android:layout_marginTop="@dimen/margin_primary"
+            android:text="@string/dominant_color"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/text_color_background"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/line4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line3"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp">
+
+            <TextView
+                android:id="@+id/text_color"
+                android:textSize="@dimen/text_size_primary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:textColor="@android:color/white"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <View
+            android:id="@+id/line4"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_thickness_wallpaper_info"
+            android:layout_marginHorizontal="@dimen/margin_primary"
+            android:background="@android:color/black"
+            app:layout_constraintTop_toBottomOf="@+id/text_color_description"
+            android:layout_marginTop="@dimen/margin_primary"/>
+
+        <TextView
+            android:id="@+id/text_resolution_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_primary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line4"
+            android:layout_marginTop="@dimen/margin_primary"
+            android:text="@string/resolution"/>
+
+        <TextView
+            android:id="@+id/text_resolution"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_primary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line4"
+            android:layout_marginTop="@dimen/margin_primary"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

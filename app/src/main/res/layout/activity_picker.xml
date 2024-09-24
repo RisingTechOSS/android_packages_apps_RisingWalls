@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C)  2024 The RisingOS Project
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <Space
+        android:id="@+id/statusbar_space"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/text_activity_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_title"
+        android:layout_marginHorizontal="@dimen/margin_large"
+        android:layout_marginVertical="@dimen/margin_semilarge"
+        android:layout_gravity="center"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="@color/accent_neutral"
+        app:cardElevation="0dp">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/picker_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/margin_secondary"
+                    android:clipToPadding="false" />
+
+        <org.risingos.wallpaperpicker.views.ScrollCutoutView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/picker_scroll_cutout_radius"/>
+
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

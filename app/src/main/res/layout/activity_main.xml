@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C)  2024 The RisingOS Project
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_secondary"
+        android:layout_marginBottom="@dimen/margin_semilarge"
+        android:layout_marginHorizontal="@dimen/margin_large">
+
+        <TextView
+            android:id="@+id/text_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:textSize="@dimen/text_size_title"
+            android:layout_marginEnd="10dp"/>
+
+        <ImageView
+            android:id="@+id/credits_image"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_menu"
+            android:layout_gravity="center_vertical"
+            android:tint="@color/text_color"/>
+        
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="@dimen/margin_primary">
+
+        <LinearLayout
+            android:id="@+id/fragments_parent_0"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/margin_secondary"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <fragment
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.4"
+                android:layout_marginBottom="@dimen/margin_secondary"
+                android:name="org.risingos.wallpaperpicker.fragments.HomeCardFragment"
+                app:label="@string/gallery"
+                app:id="0"/>
+
+            <fragment
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="@dimen/margin_secondary"
+                android:name="org.risingos.wallpaperpicker.fragments.HomeCardFragment"
+                android:layout_marginBottom="4dp"
+                app:label="@string/live_wallpapers"
+                app:id="1"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/fragments_parent_1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/margin_secondary"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <fragment
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginBottom="@dimen/margin_secondary"
+                android:name="org.risingos.wallpaperpicker.fragments.HomeCardFragment"
+                app:label="@string/rising_wallpaper"
+                app:id="2"/>
+
+            <fragment
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.4"
+                android:layout_marginTop="@dimen/margin_secondary"
+                android:name="org.risingos.wallpaperpicker.fragments.HomeCardFragment"
+                android:layout_marginBottom="4dp"
+                app:label="@string/depth_wallpaper"
+                app:id="3"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/last_viewed_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:layout_marginTop="22dp"
+        android:layout_marginBottom="@dimen/margin_semilarge"
+        android:text="@string/last_viewed"
+        android:textAlignment="center"/>
+
+    <HorizontalScrollView
+        android:id="@+id/recents_scroll"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:scrollbars="none"
+        android:layout_marginHorizontal="@dimen/margin_secondary"
+        android:layout_weight="0.3">
+
+        <!-- Ugly fix -->
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recents"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+    </HorizontalScrollView>
+
+</LinearLayout>

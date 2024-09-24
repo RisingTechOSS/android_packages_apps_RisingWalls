@@ -1,0 +1,73 @@
+<!--
+  ~ Copyright (C)  2024 The RisingOS Project
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<resources>
+    <string name="app_name">My Application</string>
+
+    <!-- Main activity -->
+    <string name="hi">Hi,\ </string>
+    <string name="last_viewed">Last viewed</string>
+    <string name="gallery">Gallery</string>
+    <string name="live_wallpapers">Live wallpapers</string>
+    <string name="rising_wallpapers">RisingOS wallpapers</string>
+    <string name="depth_wallpapers">Depth wallpapers</string>
+
+    <!-- Preview activity -->
+    <string name="depth_wallpaper">Depth wallpaper</string>
+    <string name="rising_wallpaper">RisingOS wallpaper</string>
+    <string name="image_from_gallery">Image from gallery</string>
+    <string name="by">By\ </string>
+    <string name="save">Save</string>
+    <string name="apply_preview">Apply</string>
+    <string name="info">Info</string>
+
+    <!-- Credits activity -->
+    <string name="code_by_opensourcefreak">Code by opensourcefreak</string>
+    <string name="design_by_ayan">Design by Ayan</string>
+    <string name="risingwalls_version">RisingWalls version</string>
+    <string name="about_risingwalls">About RisingWalls</string>
+    <string name="wallpaper_contributors">Wallpaper contributors</string>
+
+    <!-- Error dialog -->
+    <string name="manifest_incompatible_error">Error: Manifest incompatible</string>
+    <string name="manifest_incompatible_description">Your app version is outdated, please update</string>
+    <string name="compatible_version">Compatible version:\ </string>
+    <string name="found_version">Found version:\ </string>
+    <string name="attempt_normal_function">App will attempt to function normally</string>
+    <string name="ok">OK</string>
+
+    <!-- Apply dialog -->
+    <string name="apply_to">Apply to:</string>
+    <string name="lock_screen">Lock screen</string>
+    <string name="home_screen">Home screen</string>
+    <string name="apply">Apply</string>
+    <string name="cancel">Cancel</string>
+    <string name="applying">Applying wallpaper</string>
+
+    <!-- Info dialog -->
+    <string name="wallpaper_info">Info</string>
+    <string name="wallpaper_name">Name:</string>
+    <string name="wallpaper_author">Author:</string>
+    <string name="wallpaper_type">Type:</string>
+    <string name="resolution">Resolution:</string>
+    <string name="dominant_color">Dominant color:</string>
+
+    <!-- Toasts -->
+    <string name="apply_complete">Wallpaper updated</string>
+    <string name="apply_fail">Wallpaper update failed</string>
+    <string name="saving_wallpaper">Wallpaper saved to Downloads</string>
+</resources>

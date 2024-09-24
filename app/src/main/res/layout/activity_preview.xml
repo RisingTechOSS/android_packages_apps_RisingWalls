@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C)  2024 The RisingOS Project
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/preview_image_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/statusbar_space"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_title_background"
+            android:layout_marginTop="@dimen/margin_semilarge"
+            android:layout_marginHorizontal="@dimen/margin_semilarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/corner_radius_secondary"
+            app:cardBackgroundColor="@color/accent_neutral">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/margin_primary">
+
+                <ImageView
+                    android:id="@+id/arrow_back"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_arrow_back"
+                    android:tint="@color/color_foreground_preview"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginStart="@dimen/margin_secondary"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_secondary"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/title_preview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/text_size_title" />
+
+                    <TextView
+                        android:id="@+id/text_author"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/text_size_primary" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <Space
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="@dimen/margin_secondary">
+
+                <org.risingos.wallpaperpicker.views.ImageButtonView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/button_info"
+                    app:background_color="@color/accent_foreground"
+                    app:foreground_color="@color/button_view_apply_foreground"
+                    app:drawable="@drawable/ic_launcher_foreground"
+                    android:layout_marginEnd="@dimen/margin_secondary"
+                    android:layout_marginStart="@dimen/margin_primary"
+                    android:layout_weight="1"/>
+
+                <org.risingos.wallpaperpicker.views.ImageButtonView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/button_save"
+                    app:drawable="@drawable/ic_launcher_foreground"
+                    app:background_color="@color/accent_foreground"
+                    app:foreground_color="@color/button_view_apply_foreground"
+                    android:layout_marginHorizontal="@dimen/margin_secondary"
+                    android:layout_weight="1"/>
+
+
+                <org.risingos.wallpaperpicker.views.ImageButtonView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/button_apply"
+                    app:background_color="@color/accent_foreground"
+                    app:foreground_color="@color/button_view_apply_foreground"
+                    app:drawable="@drawable/ic_launcher_foreground"
+                    android:layout_marginStart="@dimen/margin_secondary"
+                    android:layout_marginEnd="@dimen/margin_primary"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/navbar_space"/>
+    </LinearLayout>
+</FrameLayout>
