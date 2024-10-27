@@ -17,7 +17,8 @@
   -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="org.risingos.wallpaperpicker">
 
     <uses-permission android:name="android.permission.QUERY_USERS" />
     <uses-permission android:name="android.permission.INTERNET" />

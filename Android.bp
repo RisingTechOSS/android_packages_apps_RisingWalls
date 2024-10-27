@@ -1,0 +1,52 @@
+/*
+ * Copyright (C)  2024 The RisingOS Project
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+android_app {
+    name: "RisingWalls",
+    package_name: "org.risingos.wallpaperpicker",
+
+    defaults: ["aapt_version_code_defaults"],
+
+    srcs: ["app/src/main/java/**/*.java"],
+    resource_dirs: ["app/src/main/res"],
+
+    manifest: "app/src/main/AndroidManifest.xml",
+
+    use_embedded_native_libs: true,
+    platform_apis: true,
+    system_ext_specific: true,
+    certificate: "platform",
+    privileged: true,
+
+    static_libs: [
+        "androidx.core_core",
+        "androidx.fragment_fragment",
+        "androidx.palette_palette",
+        "com.google.android.material_material",
+        "gson",
+        "prebuilt_glide",
+    ],
+
+    optimize: {
+        proguard_flags_files: ["app/proguard-rules.pro"],
+    },
+}
+
+android_library_import {
+    name: "glide",
+    aars: ["libs/glide-4.16.0.aar"],
+}
