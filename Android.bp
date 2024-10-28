@@ -38,7 +38,7 @@ android_app {
         "androidx.palette_palette",
         "com.google.android.material_material",
         "gson",
-        "prebuilt_glide",
+        "app_glide",
     ],
 
     optimize: {
@@ -47,6 +47,6 @@ android_app {
 }
 
 android_library_import {
-    name: "glide",
+    name: "app_glide",
     aars: ["libs/glide-4.16.0.aar"],
 }
