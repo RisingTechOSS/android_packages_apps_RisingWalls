@@ -43,6 +43,12 @@ android_app {
 
     optimize: {
         enabled: false,
+        optimize: false,
+        shrink: false,
+        shrink_resources: false,
+        optimized_shrink_resources: false,
+        ignore_warnings: true,
+        proguard_compatibility: false,
     },
 }
 
