@@ -24,11 +24,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.Space;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -50,9 +48,8 @@ public class DepthPickerActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getWindow().setDecorFitsSystemWindows(false);
-
         setContentView(R.layout.activity_picker);
+
         TextView titleText = findViewById(R.id.text_activity_title);
         titleText.setText(R.string.depth_wallpapers);
 

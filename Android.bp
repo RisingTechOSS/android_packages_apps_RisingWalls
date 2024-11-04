@@ -38,7 +38,8 @@ android_app {
         "androidx.palette_palette",
         "com.google.android.material_material",
         "gson",
-        "app_glide",
+        "org.lineageos.platform.sdk",
+        "risingwalls_prebuilt_glide",
     ],
 
     optimize: {
@@ -53,6 +54,21 @@ android_app {
 }
 
 android_library_import {
-    name: "app_glide",
+    name: "risingwalls_prebuilt_glide",
     aars: ["libs/glide-4.16.0.aar"],
+    static_libs: [
+        "prebuilt_gifdecoder",
+        "prebuilt_disklrucache",
+        "androidx.exifinterface_exifinterface",
+    ]
+}
+
+android_library_import {
+    name: "prebuilt_gifdecoder",
+    aars: ["libs/gifdecoder-4.16.0.aar",]
+}
+
+java_import {
+    name: "prebuilt_disklrucache",
+    jars: ["libs/disklrucache-4.16.0.jar",]
 }

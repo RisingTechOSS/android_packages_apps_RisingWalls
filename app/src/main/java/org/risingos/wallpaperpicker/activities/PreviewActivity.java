@@ -75,8 +75,6 @@ public class PreviewActivity extends FragmentActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getWindow().setDecorFitsSystemWindows(false);
-
         setContentView(R.layout.activity_preview);
         previewImage = findViewById(R.id.preview_image_background);
         nameText = findViewById(R.id.title_preview);

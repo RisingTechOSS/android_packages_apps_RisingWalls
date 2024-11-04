@@ -52,9 +52,8 @@ public class FlatPickerActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getWindow().setDecorFitsSystemWindows(false);
-
         setContentView(R.layout.activity_picker);
+
         TextView titleText = findViewById(R.id.text_activity_title);
         titleText.setText(R.string.rising_wallpapers);
 

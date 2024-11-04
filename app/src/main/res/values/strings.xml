@@ -19,7 +19,7 @@
     <string name="app_name">My Application</string>
 
     <!-- Main activity -->
-    <string name="hi">Hi,\ </string>
+    <string name="hi">Hi,</string>
     <string name="last_viewed">Last viewed</string>
     <string name="gallery">Gallery</string>
     <string name="live_wallpapers">Live wallpapers</string>

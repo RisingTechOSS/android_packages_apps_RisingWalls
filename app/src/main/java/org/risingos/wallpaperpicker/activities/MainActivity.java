@@ -35,10 +35,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import lineageos.providers.LineageSettings;
+
 import org.risingos.wallpaperpicker.MainApplication;
 import org.risingos.wallpaperpicker.R;
 import org.risingos.wallpaperpicker.jsonparser.objecs.homepage.HomepageManifest;
 import org.risingos.wallpaperpicker.utils.RecentsUtils;
+import org.risingos.wallpaperpicker.utils.SystemBarUtils;
 
 import java.util.ArrayList;
 
@@ -50,8 +53,15 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
 
         UserManager userManager = (UserManager) getSystemService(Context.USER_SERVICE);
+        MainApplication.getInstance().registerMainActivityInstance(this);
 
-        ((TextView) findViewById(R.id.text_title)).setText(getText(R.string.hi) + "opensourcefreak"/*userManager.getUserName()*/);
+        SystemBarUtils.setHeightOfViewToStatusBarHeight(this, findViewById(R.id.statusbar_space));
+
+        if (LineageSettings.System.getInt(getContentResolver(), "navigation_bar_hint", 1) == 1) {
+            SystemBarUtils.setHeightOfViewToNavBarHeight(this, findViewById(R.id.navbar_space));
+        }
+
+        ((TextView) findViewById(R.id.text_title)).setText(getText(R.string.hi) + " " + userManager.getUserName());
 
         findViewById(R.id.credits_image).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,7 +80,6 @@ public class MainActivity extends FragmentActivity {
         View lastViewed = findViewById(R.id.last_viewed_title);
         ((ViewGroup) lastViewed.getParent()).removeView(lastViewed);
 
-        MainApplication.getInstance().registerMainActivityInstance(this);
     }
 
     public void setHomepageManifest(HomepageManifest homepageManifest) {

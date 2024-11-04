@@ -93,7 +93,7 @@ public class WallpaperUtils {
                     e.printStackTrace();
                 }
 
-                // This requires inline building
+                // Not in 6.0 (yet)
                 //Settings.System.putStringForUser(context.getContentResolver(), "depth_wallpaper_subject_image_uri", localPath, UserHandle.USER_CURRENT);
 
                 MainApplication.getInstance().makeToast(R.string.apply_complete, Toast.LENGTH_LONG);

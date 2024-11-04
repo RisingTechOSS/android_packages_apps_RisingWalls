@@ -25,8 +25,8 @@ import org.risingos.wallpaperpicker.MainApplication;
 import org.risingos.wallpaperpicker.utils.NetworkUtils;
 
 public class HomepageObject {
-    private ImageView imageView;
-    private Bitmap bitmap;
+    private transient ImageView imageView;
+    private transient Bitmap bitmap;
     private String image;
 
     public void setImageView(ImageView mImageView) {
