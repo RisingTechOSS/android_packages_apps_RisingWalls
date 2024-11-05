@@ -22,21 +22,23 @@
     <string name="hi">Hi,</string>
     <string name="last_viewed">Last viewed</string>
     <string name="gallery">Gallery</string>
-    <string name="live_wallpapers">Live wallpapers</string>
-    <string name="rising_wallpapers">RisingOS wallpapers</string>
-    <string name="depth_wallpapers">Depth wallpapers</string>
+    <string name="live_wallpapers">Live</string>
+    <string name="rising_wallpapers">Official</string>
+    <string name="depth_wallpapers">Depth</string>
+
+    <!-- Picker activities -->
+    <string name="official_picker_title">Official wallpapers</string>
+    <string name="depth_picker_title">Depth wallpapers</string>
 
     <!-- Preview activity -->
     <string name="depth_wallpaper">Depth wallpaper</string>
-    <string name="rising_wallpaper">RisingOS wallpaper</string>
+    <string name="rising_wallpaper">Official wallpaper</string>
     <string name="image_from_gallery">Image from gallery</string>
-    <string name="by">By\ </string>
-    <string name="save">Save</string>
-    <string name="apply_preview">Apply</string>
+    <string name="by">By</string>
     <string name="info">Info</string>
 
     <!-- Credits activity -->
-    <string name="code_by_opensourcefreak">Code by opensourcefreak</string>
+    <string name="code_by_opensourcefreak">Code by\nopensourcefreak</string>
     <string name="design_by_ayan">Design by Ayan</string>
     <string name="risingwalls_version">RisingWalls version</string>
     <string name="about_risingwalls">About RisingWalls</string>
@@ -45,9 +47,9 @@
     <!-- Error dialog -->
     <string name="manifest_incompatible_error">Error: Manifest incompatible</string>
     <string name="manifest_incompatible_description">Your app version is outdated, please update</string>
-    <string name="compatible_version">Compatible version:\ </string>
-    <string name="found_version">Found version:\ </string>
-    <string name="attempt_normal_function">App will attempt to function normally</string>
+    <string name="compatible_version">Compatible version:</string>
+    <string name="found_version">Found version:</string>
+    <string name="attempt_normal_function">The app will attempt to function normally</string>
     <string name="ok">OK</string>
 
     <!-- Apply dialog -->
@@ -57,6 +59,7 @@
     <string name="apply">Apply</string>
     <string name="cancel">Cancel</string>
     <string name="applying">Applying wallpaper</string>
+    <string name="select_target">Please select a target</string>
 
     <!-- Info dialog -->
     <string name="wallpaper_info">Info</string>

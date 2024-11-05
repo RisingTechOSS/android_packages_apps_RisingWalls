@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -124,19 +125,17 @@ public class HomeCardFragment extends Fragment {
                 @Override
                 public void onActivityResult(ActivityResult result) {
                     if (result.getResultCode() == Activity.RESULT_OK) {
-                        Intent data = result.getData();
-
                         InputStream inputStream = null;
 
+                        Intent intent = new Intent(activity, PreviewActivity.class);
                         try {
-                            inputStream = activity.getContentResolver().openInputStream(data.getData());
+                            inputStream = activity.getContentResolver().openInputStream(result.getData().getData());
                         } catch (FileNotFoundException e) {
                             e.printStackTrace();
                         }
 
-                        Intent intent = new Intent(activity, PreviewActivity.class);
                         intent.putExtra("type", 0);
-                        intent.putExtra("bitmap_index", IntentHelper.getInstance().addItem(BitmapFactory.decodeStream(inputStream)));
+                        intent.putExtra("inputstream_index", IntentHelper.getInstance().addItem(inputStream));
                         startActivity(intent);
                     }
                 }

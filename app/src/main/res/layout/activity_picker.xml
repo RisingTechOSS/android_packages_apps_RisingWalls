@@ -27,14 +27,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <TextView
-        android:id="@+id/text_activity_title"
-        android:layout_width="wrap_content"
+    <FrameLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/text_size_title"
         android:layout_marginHorizontal="@dimen/margin_large"
-        android:layout_marginVertical="@dimen/margin_semilarge"
-        android:layout_gravity="center"/>
+        android:layout_marginVertical="@dimen/margin_semilarge">
+
+        <ImageView
+            android:id="@+id/arrow_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_arrow_back"
+            android:tint="@color/text_color"
+            android:layout_gravity="center_vertical" />
+
+        <TextView
+            android:id="@+id/text_activity_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_title"
+            android:layout_gravity="center"/>
+    </FrameLayout>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"

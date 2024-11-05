@@ -37,6 +37,7 @@ android_app {
         "androidx.fragment_fragment",
         "androidx.palette_palette",
         "com.google.android.material_material",
+        "androidx.exifinterface_exifinterface",
         "gson",
         "org.lineageos.platform.sdk",
         "risingwalls_prebuilt_glide",

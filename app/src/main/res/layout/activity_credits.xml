@@ -23,6 +23,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <Space
+        android:id="@+id/statusbar_space"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
     <TextView
         android:id="@+id/text_title"
         android:layout_width="match_parent"
@@ -186,14 +191,14 @@
         android:layout_height="wrap_content"
         android:textSize="@dimen/text_size_title"
         android:text="@string/wallpaper_contributors"
-        android:layout_margin="@dimen/margin_secondary"
+        android:layout_marginBottom="@dimen/margin_primary"
         android:textAlignment="center"/>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_margin="@dimen/margin_secondary"
+        android:layout_marginBottom="4dp"
+        android:layout_marginHorizontal="@dimen/margin_primary"
         app:cardBackgroundColor="@color/accent_neutral"
         app:cardCornerRadius="48dp"
         android:minHeight="200dp">
@@ -203,7 +208,12 @@
             android:layout_height="wrap_content"
             android:textSize="@dimen/text_size_primary"
             android:id="@+id/wallpaper_contributors"
-            android:layout_margin="@dimen/margin_semilarge"/>
+            android:layout_margin="@dimen/margin_semilarge"
+            android:layout_gravity="center_vertical|left"/>
     </androidx.cardview.widget.CardView>
 
+    <Space
+        android:id="@+id/navbar_space"
+        android:layout_width="match_parent"
+        android:layout_height="12dp"/>
 </LinearLayout>

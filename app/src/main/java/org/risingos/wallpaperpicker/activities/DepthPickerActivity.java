@@ -51,7 +51,7 @@ public class DepthPickerActivity extends Activity {
         setContentView(R.layout.activity_picker);
 
         TextView titleText = findViewById(R.id.text_activity_title);
-        titleText.setText(R.string.depth_wallpapers);
+        titleText.setText(R.string.depth_picker_title);
 
         Space statusbarSpace = findViewById(R.id.statusbar_space);
         SystemBarUtils.setHeightOfViewToStatusBarHeight(this, statusbarSpace);

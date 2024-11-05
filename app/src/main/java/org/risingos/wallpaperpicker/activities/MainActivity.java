@@ -57,9 +57,8 @@ public class MainActivity extends FragmentActivity {
 
         SystemBarUtils.setHeightOfViewToStatusBarHeight(this, findViewById(R.id.statusbar_space));
 
-        if (LineageSettings.System.getInt(getContentResolver(), "navigation_bar_hint", 1) == 1) {
+        if (LineageSettings.System.getInt(getContentResolver(), "navigation_bar_hint", 1) == 1)
             SystemBarUtils.setHeightOfViewToNavBarHeight(this, findViewById(R.id.navbar_space));
-        }
 
         ((TextView) findViewById(R.id.text_title)).setText(getText(R.string.hi) + " " + userManager.getUserName());
 
@@ -93,13 +92,12 @@ public class MainActivity extends FragmentActivity {
 
             String description = getString(R.string.manifest_incompatible_description) + "\n" +
                     "\n" +
-                    getString(R.string.compatible_version) + compatible_target_level + "\n" +
-                    getString(R.string.found_version) + target_level + "\n" +
+                    getString(R.string.compatible_version) + " " + compatible_target_level + "\n" +
+                    getString(R.string.found_version) + " " + target_level + "\n" +
                     "\n" +
                     getString(R.string.attempt_normal_function);
 
             builder.setPositiveButton(R.string.ok, null);
-
             builder.setMessage(description);
             builder.setCancelable(true);
             builder.create().show();

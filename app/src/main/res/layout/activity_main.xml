@@ -103,7 +103,7 @@
                 android:layout_weight="1"
                 android:layout_marginBottom="@dimen/margin_secondary"
                 android:name="org.risingos.wallpaperpicker.fragments.HomeCardFragment"
-                app:label="@string/rising_wallpaper"
+                app:label="@string/rising_wallpapers"
                 app:id="2"/>
 
             <fragment
@@ -113,7 +113,7 @@
                 android:layout_marginTop="@dimen/margin_secondary"
                 android:name="org.risingos.wallpaperpicker.fragments.HomeCardFragment"
                 android:layout_marginBottom="4dp"
-                app:label="@string/depth_wallpaper"
+                app:label="@string/depth_wallpapers"
                 app:id="3"/>
         </LinearLayout>
     </LinearLayout>

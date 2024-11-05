@@ -26,9 +26,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
+import android.media.ExifInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,6 +47,8 @@ import androidx.palette.graphics.Palette;
 
 import com.google.android.material.progressindicator.LinearProgressIndicator;
 
+import lineageos.providers.LineageSettings;
+
 import org.risingos.wallpaperpicker.MainApplication;
 import org.risingos.wallpaperpicker.R;
 import org.risingos.wallpaperpicker.jsonparser.objecs.depth.DepthWallpaper;
@@ -54,6 +59,10 @@ import org.risingos.wallpaperpicker.utils.SystemBarUtils;
 import org.risingos.wallpaperpicker.utils.WallpaperUtils;
 import org.risingos.wallpaperpicker.views.ImageButtonView;
 import org.risingos.wallpaperpicker.views.TextButtonView;
+
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 public class PreviewActivity extends FragmentActivity {
     private String resolutionText;
@@ -82,8 +91,10 @@ public class PreviewActivity extends FragmentActivity {
         arrowBack = findViewById(R.id.arrow_back);
         saveButton = findViewById(R.id.button_save);
 
+        if (LineageSettings.System.getInt(getContentResolver(), "navigation_bar_hint", 1) == 1)
+            SystemBarUtils.setHeightOfViewToNavBarHeight(this, findViewById(R.id.navbar_space));
+
         SystemBarUtils.setHeightOfViewToStatusBarHeight(this, findViewById(R.id.statusbar_space));
-        SystemBarUtils.setHeightOfViewToNavBarHeight(this, findViewById(R.id.navbar_space));
 
         Bundle extras = getIntent().getExtras();
         IntentHelper intentHelper = IntentHelper.getInstance();
@@ -91,7 +102,44 @@ public class PreviewActivity extends FragmentActivity {
 
         switch (type) {
             case 0:
-                setBitmap((Bitmap) intentHelper.getItem(extras.getInt("bitmap_index")));
+                BufferedInputStream inputStream = new BufferedInputStream((InputStream) intentHelper.getItem(extras.getInt("inputstream_index")));
+                try {
+                    inputStream.mark(inputStream.available());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                ExifInterface exifInterface = null;
+                try {
+                    exifInterface = new ExifInterface(inputStream);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
+                int rotation = 0;
+                switch (exifInterface.getAttributeInt(ExifInterface.TAG_ORIENTATION, 1)) {
+                    case ExifInterface.ORIENTATION_ROTATE_90:
+                        rotation = 90;
+                        break;
+                    case ExifInterface.ORIENTATION_ROTATE_180:
+                        rotation = 180;
+                        break;
+                    case ExifInterface.ORIENTATION_ROTATE_270:
+                        rotation = 270;
+                        break;
+                }
+
+                try {
+                    inputStream.reset();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+                Matrix matrix = new Matrix();
+                matrix.postRotate(rotation);
+                setBitmap(Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true));
+
                 wallpaperName = getString(R.string.image_from_gallery);
                 ((ViewGroup) saveButton.getParent()).removeView(saveButton);
                 ((ViewGroup) authorText.getParent()).removeView(authorText);
@@ -137,7 +185,7 @@ public class PreviewActivity extends FragmentActivity {
         infoDialog.init();
 
         if (type != 0)
-            authorText.setText(getString(R.string.by) + wallpaperAuthor);
+            authorText.setText(getString(R.string.by) + " " + wallpaperAuthor);
 
         arrowBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -292,11 +340,12 @@ public class PreviewActivity extends FragmentActivity {
                     @Override
                     public void onClick(View view) {
                         if (!cardStates[0] & !cardStates[1]) {
-                            Toast.makeText(PreviewActivity.this, "Please select something to apply to", Toast.LENGTH_LONG).show();
+                            Toast.makeText(PreviewActivity.this, R.string.select_target, Toast.LENGTH_LONG).show();
                             return;
                         }
 
                         setContentView(R.layout.diag_applying);
+                        setCancelable(false);
                         TextView text_title = findViewById(R.id.text_title);
                         text_title.setTextColor(lightColor);
 
@@ -489,8 +538,11 @@ public class PreviewActivity extends FragmentActivity {
                     break;
             }
 
-            findViewById(R.id.line0).setBackgroundColor(linesColor);
-            findViewById(R.id.line1).setBackgroundColor(linesColor);
+            if (type != 0) {
+                findViewById(R.id.line0).setBackgroundColor(linesColor);
+                findViewById(R.id.line1).setBackgroundColor(linesColor);
+            }
+
             findViewById(R.id.line2).setBackgroundColor(linesColor);
             findViewById(R.id.line3).setBackgroundColor(linesColor);
             findViewById(R.id.line4).setBackgroundColor(linesColor);

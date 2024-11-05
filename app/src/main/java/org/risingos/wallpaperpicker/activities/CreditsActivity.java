@@ -18,27 +18,16 @@
 package org.risingos.wallpaperpicker.activities;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.webkit.WebView;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
-import com.bumptech.glide.Glide;
+import lineageos.providers.LineageSettings;
 
 import org.risingos.wallpaperpicker.MainApplication;
 import org.risingos.wallpaperpicker.R;
-import org.risingos.wallpaperpicker.jsonparser.objecs.depth.DepthWallpaper;
-import org.risingos.wallpaperpicker.jsonparser.objecs.homepage.HomepageManifest;
-import org.risingos.wallpaperpicker.utils.IntentHelper;
+import org.risingos.wallpaperpicker.utils.SystemBarUtils;
 
 import java.util.List;
 
@@ -48,6 +37,11 @@ public class CreditsActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_credits);
+
+        if (LineageSettings.System.getInt(getContentResolver(), "navigation_bar_hint", 1) == 1)
+            SystemBarUtils.setHeightOfViewToNavBarHeight(this, findViewById(R.id.navbar_space));
+
+        SystemBarUtils.setHeightOfViewToStatusBarHeight(this, findViewById(R.id.statusbar_space));
 
         TextView creditsView = findViewById(R.id.wallpaper_contributors);
 

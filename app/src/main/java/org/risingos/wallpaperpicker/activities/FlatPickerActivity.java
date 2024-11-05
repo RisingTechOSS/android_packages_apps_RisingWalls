@@ -55,7 +55,7 @@ public class FlatPickerActivity extends Activity {
         setContentView(R.layout.activity_picker);
 
         TextView titleText = findViewById(R.id.text_activity_title);
-        titleText.setText(R.string.rising_wallpapers);
+        titleText.setText(R.string.official_picker_title);
 
         Space statusbarSpace = findViewById(R.id.statusbar_space);
         SystemBarUtils.setHeightOfViewToStatusBarHeight(this, statusbarSpace);
