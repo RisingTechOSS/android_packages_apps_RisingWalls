@@ -39,7 +39,7 @@ android_app {
         "com.google.android.material_material",
         "androidx.exifinterface_exifinterface",
         "gson",
-        "org.lineageos.platform.lineagesettings",
+        "org.lineageos.platform.sdk",
         "risingwalls_prebuilt_glide",
     ],
 

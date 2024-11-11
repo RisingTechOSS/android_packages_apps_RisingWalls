@@ -200,8 +200,7 @@
         android:layout_marginBottom="4dp"
         android:layout_marginHorizontal="@dimen/margin_primary"
         app:cardBackgroundColor="@color/accent_neutral"
-        app:cardCornerRadius="48dp"
-        android:minHeight="200dp">
+        app:cardCornerRadius="48dp">
 
         <TextView
             android:layout_width="wrap_content"
