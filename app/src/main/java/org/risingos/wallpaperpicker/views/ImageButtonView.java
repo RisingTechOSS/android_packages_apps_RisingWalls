@@ -133,7 +133,7 @@ public class ImageButtonView extends View {
         canvas.clipPath(path);
         canvas.drawPaint(paint);
 
-        int drawableSize = (int) ((getHeight() * scaleFactor) * 0.9);
+        int drawableSize = (int) ((getHeight() * scaleFactor) * 0.6);
 
         Rect mRect = new Rect((width - drawableSize) / 2, (height - drawableSize) / 2, (width + drawableSize) / 2, (height + drawableSize) / 2);
         drawable.setBounds(mRect);

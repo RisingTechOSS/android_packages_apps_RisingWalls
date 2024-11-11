@@ -102,7 +102,7 @@
                     android:id="@+id/button_info"
                     app:background_color="@color/accent_foreground"
                     app:foreground_color="@color/button_view_apply_foreground"
-                    app:drawable="@drawable/ic_launcher_foreground"
+                    app:drawable="@drawable/ic_info"
                     android:layout_marginEnd="@dimen/margin_secondary"
                     android:layout_marginStart="@dimen/margin_primary"
                     android:layout_weight="1"/>
@@ -111,7 +111,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:id="@+id/button_save"
-                    app:drawable="@drawable/ic_launcher_foreground"
+                    app:drawable="@drawable/ic_download"
                     app:background_color="@color/accent_foreground"
                     app:foreground_color="@color/button_view_apply_foreground"
                     android:layout_marginHorizontal="@dimen/margin_secondary"
@@ -124,7 +124,7 @@
                     android:id="@+id/button_apply"
                     app:background_color="@color/accent_foreground"
                     app:foreground_color="@color/button_view_apply_foreground"
-                    app:drawable="@drawable/ic_launcher_foreground"
+                    app:drawable="@drawable/ic_apply"
                     android:layout_marginStart="@dimen/margin_secondary"
                     android:layout_marginEnd="@dimen/margin_primary"
                     android:layout_weight="1"/>

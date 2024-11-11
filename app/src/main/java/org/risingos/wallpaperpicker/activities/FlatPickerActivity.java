@@ -57,6 +57,13 @@ public class FlatPickerActivity extends Activity {
         TextView titleText = findViewById(R.id.text_activity_title);
         titleText.setText(R.string.official_picker_title);
 
+        findViewById(R.id.arrow_back).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
         Space statusbarSpace = findViewById(R.id.statusbar_space);
         SystemBarUtils.setHeightOfViewToStatusBarHeight(this, statusbarSpace);
 
