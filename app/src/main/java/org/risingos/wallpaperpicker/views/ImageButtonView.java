@@ -27,6 +27,7 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import android.view.SoundEffectConstants;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -96,8 +97,10 @@ public class ImageButtonView extends View {
                         break;
 
                     case MotionEvent.ACTION_UP:
-                        if ((onClickListener != null) & (event.getX() < getMeasuredWidth()) & (event.getY() < getMeasuredHeight()) & event.getY() > 0 & event.getX() > 0)
+                        if ((onClickListener != null) & (event.getX() < getMeasuredWidth()) & (event.getY() < getMeasuredHeight()) & event.getY() > 0 & event.getX() > 0) {
+                            playSoundEffect(SoundEffectConstants.CLICK);
                             onClickListener.onClick(ImageButtonView.this);
+                        }
 
                         enlargeAnimator = ValueAnimator.ofFloat(0.95f, 1);
                         enlargeAnimator.setDuration(50);
