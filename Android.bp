@@ -44,13 +44,14 @@ android_app {
     ],
 
     optimize: {
-        enabled: false,
-        optimize: false,
-        shrink: false,
+        enabled: true,
+        optimize: true,
+        shrink: true,
         shrink_resources: false,
         optimized_shrink_resources: false,
-        ignore_warnings: true,
+        ignore_warnings: false,
         proguard_compatibility: false,
+        proguard_flags_files: ["app/proguard-rules.pro"],
     },
 }
 
