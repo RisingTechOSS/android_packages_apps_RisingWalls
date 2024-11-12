@@ -73,4 +73,5 @@
     <string name="apply_complete">Wallpaper updated</string>
     <string name="apply_fail">Wallpaper update failed</string>
     <string name="saving_wallpaper">Wallpaper saved to Downloads</string>
+    <string name="depth_not_avalible">Depth wallpapers are not yet avalible on Android 15</string>
 </resources>

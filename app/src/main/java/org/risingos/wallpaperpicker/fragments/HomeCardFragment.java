@@ -32,6 +32,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
@@ -111,8 +112,7 @@ public class HomeCardFragment extends Fragment {
                 view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(activity, DepthPickerActivity.class);
-                        startActivity(intent);
+                        Toast.makeText(getContext(), R.string.depth_not_avalible, Toast.LENGTH_LONG).show();
                     }
                 });
                 break;
