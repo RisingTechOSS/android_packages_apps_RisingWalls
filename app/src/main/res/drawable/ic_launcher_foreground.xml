@@ -1,28 +1,16 @@
-<!--
-  ~ Copyright (C)  2024 The RisingOS Project
-  ~
-  ~ This program is free software: you can redistribute it and/or modify
-  ~ it under the terms of the GNU General Public License as published by
-  ~ the Free Software Foundation, either version 3 of the License, or
-  ~ (at your option) any later version.
-  ~
-  ~ This program is distributed in the hope that it will be useful,
-  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
-  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  ~ GNU General Public License for more details.
-  ~
-  ~ You should have received a copy of the GNU General Public License
-  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
-  -->
-
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="800dp"
-    android:height="800dp"
-    android:viewportWidth="800"
-    android:viewportHeight="800"
-    android:tint="#262626">
-  <path
-      android:pathData="m512.27,461.71 l9.72,71.38c2.1,15.44 -2.27,30.28 -11.05,41.81 -8.83,11.59 -22.1,19.82 -37.72,21.95 -6.9,-50.68 -51.78,-75.82 -87.46,-38.91 -4.65,4.81 -9.14,9.64 -13.39,14.35 -20.83,23.07 -35.91,43.17 -35.91,43.17l-53.67,-394.27 298.44,184.4zM468.14,444.46 L478.55,520.89c-6,-5.27 -12.7,-9.78 -20.1,-13.37 -31.33,-15.16 -65.86,-9.15 -93.09,13.21l-29.73,-218.4 174.61,107.88z"
-      android:fillColor="#000000"
-      android:fillType="evenOdd"/>
+    android:width="54dp"
+    android:height="54dp"
+    android:viewportWidth="54"
+    android:viewportHeight="54">
+      <path
+          android:pathData="m23.187,16.409c0.818,-2.039 3.135,-3.029 5.174,-2.211l6.504,2.609c2.039,0.818 3.029,3.135 2.211,5.174l-6.262,15.609c-0.818,2.039 -3.135,3.029 -5.174,2.211L19.136,37.192C17.097,36.374 16.107,34.058 16.925,32.018Z"
+          android:fillColor="#11b7be"/>
+      <path
+          android:pathData="m19.845,18.76c0,-2.197 1.781,-3.978 3.978,-3.978h7.008c2.197,0 3.978,1.781 3.978,3.978v16.818c0,2.197 -1.781,3.978 -3.978,3.978h-7.008c-2.197,0 -3.978,-1.781 -3.978,-3.978z"
+          android:fillColor="#039096"/>
+      <path
+          android:pathData="m29.356,28.216 l0.192,1.408c0.041,0.305 -0.045,0.597 -0.218,0.825 -0.174,0.229 -0.436,0.391 -0.744,0.433 -0.136,-1 -1.021,-1.495 -1.725,-0.767 -0.092,0.095 -0.18,0.19 -0.264,0.283 -0.411,0.455 -0.708,0.851 -0.708,0.851l-1.059,-7.776 5.886,3.637zM28.485,27.876 L28.69,29.383c-0.118,-0.104 -0.25,-0.193 -0.396,-0.264 -0.618,-0.299 -1.299,-0.181 -1.836,0.261l-0.586,-4.307 3.444,2.128z"
+          android:fillColor="#02fcf8"
+          android:fillType="evenOdd"/>
 </vector>
