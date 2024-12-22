@@ -42,6 +42,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+
 import org.risingos.wallpaperpicker.MainApplication;
 import org.risingos.wallpaperpicker.R;
 import org.risingos.wallpaperpicker.activities.DepthPickerActivity;
@@ -63,20 +66,19 @@ public class HomeCardFragment extends Fragment {
     }
 
     public void setObject(HomepageObject object) {
-        ImageView imageView = getView().findViewById(R.id.background_image);
-        object.setImageView(imageView);
+        MainApplication.getInstance().runOnMainThread(new Runnable() {
+            @Override
+            public void run() {
+                Glide.with(getActivity()).load(object.getImage()).diskCacheStrategy(DiskCacheStrategy.ALL).placeholder(R.color.color_background_primary).into((ImageView) getView().findViewById(R.id.background_image));
+            }
+        });
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         ((TextView) view.findViewById(R.id.homecard_text_title)).setText(title);
-
-
         MainApplication.getInstance().registerHomeFragment(this, id);
-
-
         activity = getActivity();
 
         switch (id) {

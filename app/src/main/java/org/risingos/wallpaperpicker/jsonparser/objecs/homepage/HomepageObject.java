@@ -17,40 +17,19 @@
 
 package org.risingos.wallpaperpicker.jsonparser.objecs.homepage;
 
-import android.graphics.Bitmap;
-import android.util.Log;
-import android.widget.ImageView;
+import android.content.Context;
 
-import org.risingos.wallpaperpicker.MainApplication;
-import org.risingos.wallpaperpicker.utils.NetworkUtils;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 public class HomepageObject {
-    private transient ImageView imageView;
-    private transient Bitmap bitmap;
     private String image;
 
-    public void setImageView(ImageView mImageView) {
-        if (bitmap == null) {
-            imageView = mImageView;
-        } else {
-            mImageView.setImageBitmap(bitmap);
-        }
+    public String getImage() {
+        return image;
     }
 
-    public void notifyParseComplete() {
-        MainApplication.getInstance().getThreadPoolExecutor().execute(new NetworkUtils.NetworkRunnable("Bitmap", image, new NetworkUtils.onFetchCompleteCallback() {
-            @Override
-            public void onFetchComplete(Object fetchedData) {
-                if (imageView != null) {
-                    MainApplication.getInstance().runOnMainThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            imageView.setImageBitmap((Bitmap) fetchedData);
-                        }
-                    });
-                }
-                bitmap = (Bitmap) fetchedData;
-            }
-        }));
+    public void notifyParseComplete(Context context) {
+        Glide.with(context).load(image).diskCacheStrategy(DiskCacheStrategy.ALL).preload();
     }
 }

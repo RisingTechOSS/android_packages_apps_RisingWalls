@@ -20,7 +20,9 @@ package org.risingos.wallpaperpicker.activities;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +37,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import org.risingos.wallpaperpicker.R;
 import org.risingos.wallpaperpicker.MainApplication;
@@ -89,6 +92,7 @@ public class FlatPickerActivity extends Activity {
                     @Override
                     public void run() {
                         pickerRecycler.setPadding(0, getResources().getDimensionPixelSize(R.dimen.margin_secondary), 0, bottom);
+                        Log.d("fff", "kidnawerks");
                     }
                 });
             }
@@ -144,7 +148,7 @@ public class FlatPickerActivity extends Activity {
             public void setData(FlatWallpaper data) {
                 titleView.setText(data.getTitle());
 
-                Glide.with((Context) FlatPickerActivity.this).load(data.getThumbnail()).into(imageView);
+                Glide.with(imageView).load(data.getThumbnail()).diskCacheStrategy(DiskCacheStrategy.ALL).placeholder(R.color.color_background_primary).into(imageView);
 
                 mainView.setOnClickListener(new View.OnClickListener() {
                                                 @Override

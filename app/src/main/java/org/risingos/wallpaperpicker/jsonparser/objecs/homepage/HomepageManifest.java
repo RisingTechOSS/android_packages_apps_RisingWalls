@@ -17,6 +17,10 @@
 
 package org.risingos.wallpaperpicker.jsonparser.objecs.homepage;
 
+import android.content.Context;
+
+import org.risingos.wallpaperpicker.MainApplication;
+
 import java.util.List;
 
 public class HomepageManifest {
@@ -39,7 +43,7 @@ public class HomepageManifest {
     public void notifyParseComplete() {
 
         for (int i = 0; i < 4; i++) {
-            images.get(i).notifyParseComplete();
+            images.get(i).notifyParseComplete(MainApplication.getInstance().getApplicationContext());
         }
     }
 }

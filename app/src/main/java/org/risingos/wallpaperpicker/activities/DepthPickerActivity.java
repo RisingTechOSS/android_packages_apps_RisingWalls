@@ -18,6 +18,7 @@
 package org.risingos.wallpaperpicker.activities;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -32,6 +33,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import org.risingos.wallpaperpicker.R;
 import org.risingos.wallpaperpicker.MainApplication;
@@ -131,7 +133,7 @@ public class DepthPickerActivity extends Activity {
             public void setData(DepthWallpaper data) {
                 titleView.setText(data.getTitle());
 
-                Glide.with(getBaseContext()).load(data.getThumbnail()).into(imageView);
+                Glide.with((Context) DepthPickerActivity.this).load(data.getThumbnail()).diskCacheStrategy(DiskCacheStrategy.ALL).placeholder(R.color.color_background_primary).into(imageView);
 
                 mainView.setOnClickListener(new View.OnClickListener() {
                                                 @Override

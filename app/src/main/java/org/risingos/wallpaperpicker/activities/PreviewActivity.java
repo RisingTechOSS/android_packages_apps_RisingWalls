@@ -45,6 +45,12 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.FragmentActivity;
 import androidx.palette.graphics.Palette;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 import com.google.android.material.progressindicator.LinearProgressIndicator;
 
 import lineageos.providers.LineageSettings;
@@ -74,11 +80,13 @@ public class PreviewActivity extends FragmentActivity {
     private TextView nameText;
     private TextView authorText;
     private ImageView arrowBack;
-    private ImageButtonView saveButton;
     private boolean isDepth;
     private Bitmap subject;
     private int type;
-    String wallpaperAuthor = null;
+    private String wallpaperAuthor = null;
+    private ImageButtonView applyButton;
+    private ImageButtonView infoButton;
+    private ImageButtonView saveButton;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -89,7 +97,10 @@ public class PreviewActivity extends FragmentActivity {
         nameText = findViewById(R.id.title_preview);
         authorText = findViewById(R.id.text_author);
         arrowBack = findViewById(R.id.arrow_back);
+        applyButton = findViewById(R.id.button_apply);
+        infoButton = findViewById(R.id.button_info);
         saveButton = findViewById(R.id.button_save);
+
 
         if (LineageSettings.System.getInt(getContentResolver(), "navigation_bar_hint", 1) == 1)
             SystemBarUtils.setHeightOfViewToNavBarHeight(this, findViewById(R.id.navbar_space));
@@ -136,6 +147,7 @@ public class PreviewActivity extends FragmentActivity {
                 }
 
                 Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+                setColors(bitmap);
                 Matrix matrix = new Matrix();
                 matrix.postRotate(rotation);
                 setBitmap(Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true));
@@ -147,14 +159,26 @@ public class PreviewActivity extends FragmentActivity {
 
             case 1:
                 FlatWallpaper wallpaperData = (FlatWallpaper) intentHelper.getItem(extras.getInt("data_index"));
+                Glide.with((Context) this).asBitmap().load(wallpaperData.getThumbnail()).diskCacheStrategy(DiskCacheStrategy.ALL).listener(new RequestListener<Bitmap>() {
+                    @Override
+                    public boolean onLoadFailed(@Nullable GlideException e, @Nullable Object model, @NonNull Target<Bitmap> target, boolean isFirstResource) {
+                        return false;
+                    }
+
+                    @Override
+                    public boolean onResourceReady(@NonNull Bitmap resource, @NonNull Object model, Target<Bitmap> target, @NonNull DataSource dataSource, boolean isFirstResource) {
+                        setColors(resource);
+                        return false;
+                    }
+                }).into(previewImage);
+                wallpaperAuthor = wallpaperData.getAuthor();
+                wallpaperName = wallpaperData.getTitle();
                 MainApplication.getInstance().getThreadPoolExecutor().execute(new NetworkUtils.NetworkRunnable("Bitmap", wallpaperData.getWallpaper(), new NetworkUtils.onFetchCompleteCallback() {
                     @Override
                     public void onFetchComplete(Object fetchedData) {
                         setBitmap((Bitmap) fetchedData);
                     }
                 }));
-                wallpaperAuthor = wallpaperData.getAuthor();
-                wallpaperName = wallpaperData.getTitle();
 
                 isDepth = wallpaperData instanceof DepthWallpaper;
 
@@ -172,18 +196,6 @@ public class PreviewActivity extends FragmentActivity {
                 break;
         }
 
-        applyDialog = new ApplyDialog(this);
-        applyDialog.setContentView(R.layout.diag_apply);
-        applyDialog.setCancelable(true);
-        applyDialog.getWindow().setLayout((int) (getResources().getDisplayMetrics().widthPixels * 0.9), ViewGroup.LayoutParams.WRAP_CONTENT);
-        applyDialog.init();
-
-        infoDialog = new InfoDialog(this);
-        infoDialog.setContentView(R.layout.diag_info);
-        infoDialog.setCancelable(true);
-        infoDialog.getWindow().setLayout((int) (getResources().getDisplayMetrics().widthPixels * 0.9), ViewGroup.LayoutParams.WRAP_CONTENT);
-        infoDialog.init();
-
         if (type != 0)
             authorText.setText(getString(R.string.by) + " " + wallpaperAuthor);
 
@@ -198,12 +210,9 @@ public class PreviewActivity extends FragmentActivity {
     }
 
     private void setBitmap(Bitmap bitmap) {
-        resolutionText = bitmap.getWidth() + "x" + bitmap.getHeight();
+        resolutionText = bitmap.getWidth() + "×" + bitmap.getHeight();
         previewImage.setImageBitmap(bitmap);
         wallpaper = bitmap;
-
-        ImageButtonView applyButton = findViewById(R.id.button_apply);
-        ImageButtonView infoButton = findViewById(R.id.button_info);
 
         applyButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -228,7 +237,9 @@ public class PreviewActivity extends FragmentActivity {
                                                               }
                                                           }
         );
+    }
 
+    private void setColors(Bitmap bitmap) {
         MainApplication.getInstance().getThreadPoolExecutor().execute(new Runnable() {
             @Override
             public void run() {
@@ -251,6 +262,19 @@ public class PreviewActivity extends FragmentActivity {
                 MainApplication.getInstance().runOnMainThread(new Runnable() {
                     @Override
                     public void run() {
+                        int dialogWidth = (int) (getResources().getDisplayMetrics().widthPixels * 0.9);
+
+                        applyDialog = new ApplyDialog(PreviewActivity.this);
+                        applyDialog.setContentView(R.layout.diag_apply);
+                        applyDialog.setCancelable(true);
+                        applyDialog.getWindow().setLayout(dialogWidth, ViewGroup.LayoutParams.WRAP_CONTENT);
+                        applyDialog.init();
+
+                        infoDialog = new InfoDialog(PreviewActivity.this);
+                        infoDialog.setContentView(R.layout.diag_info);
+                        infoDialog.setCancelable(true);
+                        infoDialog.getWindow().setLayout(dialogWidth, ViewGroup.LayoutParams.WRAP_CONTENT);
+                        infoDialog.init();
 
                         switch (isDarkMode) {
                             case Configuration.UI_MODE_NIGHT_NO:
