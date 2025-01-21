@@ -41,7 +41,6 @@ public class ImageButtonView extends View {
     private int backgroundColor;
     private int drawableColor;
     private float scaleFactor = 1;
-    private OnClickListener onClickListener;
 
     public ImageButtonView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -64,11 +63,6 @@ public class ImageButtonView extends View {
     public void setDrawableColor(int drawableColor) {
         this.drawableColor = drawableColor;
         invalidate();
-    }
-
-    @Override
-    public void setOnClickListener(@Nullable OnClickListener l) {
-        onClickListener = l;
     }
 
     private void init(Context context, AttributeSet attrs) {
@@ -97,18 +91,13 @@ public class ImageButtonView extends View {
                         break;
 
                     case MotionEvent.ACTION_UP:
-                        if ((onClickListener != null) & (event.getX() < getMeasuredWidth()) & (event.getY() < getMeasuredHeight()) & event.getY() > 0 & event.getX() > 0) {
-                            playSoundEffect(SoundEffectConstants.CLICK);
-                            onClickListener.onClick(ImageButtonView.this);
-                        }
-
                         enlargeAnimator = ValueAnimator.ofFloat(0.95f, 1);
                         enlargeAnimator.setDuration(50);
                         enlargeAnimator.addUpdateListener(new SizeChangeAnimatorUpdateListener());
                         enlargeAnimator.start();
                         break;
                 }
-                return true;
+                return false;
             }
         });
     }
